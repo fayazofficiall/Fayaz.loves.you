@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(245, 166, 192);
+    }
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    h1 {
+        font-family: arial;
+        color: rgb(240, 70, 192);
+        text-shadow: 10px 10px 5px rgb(217, 232, 233);
+        
+    }
+
+    #no {
+        background-color: red;
+        padding: 10px 25px;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        margin: 10px;
+        color: white;
+    }
+
+    #yes {
+        background-color: lightgreen;
+        padding: 10px 25px;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        margin: 10px;
+        color: red;
+    }
+
+    .ss:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<body>
+    <center>
+        <h1 id="txt">Will you be my valentine?</h1>
+        <button id="yes" class="ss">Yes</button>
+        <button id="no" class="ss">No</button>
+
+    </center>
+    <video autoplay muted loop class="background-video" id="video1">
+        <source src="smal.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop class="background-video" id="video2" style="display:none;">
+        <source src="asd.mp4" type="video/mp4">
+    </video>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    let clickCount = 0;
+
+    $("#no").click(function () {
+        clickCount++;
+
+        if (clickCount == 1) {
+            $(this).text("Are you sure?");
+        } 
+        else if (clickCount == 2) {
+            $(this).text("Really sure??");
+        }
+        else if (clickCount == 3) {
+            $(this).text("are you positive??😭");
+        }
+        else if (clickCount == 4) {
+            $(this).text("kashooo plssss😭");
+        }
+        else if (clickCount == 5) {
+            $(this).text("kasho yr dil mat toro ");
+        }
+        else if (clickCount == 6) {
+            $(this).text("agr ab no kiya to pakka mein roo duga..");
+        }
+        else if (clickCount == 7) {
+            $(this).text("Aapko qsm hai yes boldo😭😭");
+        }
+        else if (clickCount == 8) {
+            $(this).hide();
+            $("#yes").append("<br><br><br><br>ab yehi option hai");
+        }
+        
+
+        let topBottomPadding = 25 + 20 * clickCount + 'px';
+        let leftRightPadding = 40 + 10 * clickCount + 'px';
+        $("#yes").css("padding", topBottomPadding + " " + leftRightPadding);
+    });
+
+
+
+
+
+    $("#yes").click(function () {
+        $("#txt").text("yeahhhhhhhh  i knew you will say yes i love youuuuu soo much kashoo ummmahhhh😍❤️");
+        $("#yes").hide();
+        $("#no").hide();
+        $("#video1").hide();
+        $("#video2").show(); 
+    });
+</script>
+
+</html>
